@@ -17,10 +17,10 @@ class NameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_name, container, false).apply {
-            val displayTextView = findViewById<TextView>(R.id.displayTextView)
-            val nameEditText = findViewById<EditText>(R.id.nameEditText)
-            val changeButton = findViewById<Button>(R.id.changeButton)
+            val rootView = inflater.inflate(R.layout.fragment_name, container, false)
+            val displayTextView = rootView.findViewById<TextView>(R.id.displayTextView)
+            val nameEditText = rootView.findViewById<EditText>(R.id.nameEditText)
+            val changeButton = rootView.findViewById<Button>(R.id.changeButton)
 
                 changeButton.setOnClickListener {
                     val name = nameEditText.text
@@ -31,9 +31,7 @@ class NameFragment : Fragment() {
                         "Please enter your name"
                     }
                 }
-            }
-    }
-
+        return rootView
 
     }
 }
